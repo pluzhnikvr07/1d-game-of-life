@@ -1,4 +1,4 @@
-import time
+import time  #  импорт из библиотеки для работы со временем
 dlina = int(input('Введите длину строки, на которой будут расположены клетки \n'))
 world = [input('Введите живую(*) или мертвую(-) клетку ') for i in range(dlina)]
 pokolenie = int(input('Введите количество поколений, которые хотите увидеть \n'))
@@ -15,5 +15,5 @@ for j in range(1, pokolenie + 1):
                 world[i] = '-'
             elif (world[i - 1] == '*' and world[0] == '-') or (world[i - 1] == '-' and world[0] == '*'):
                 world[i] = '*'
-    time.sleep(0.5)            
+    time.sleep(0.5)  #  задержка 0.5 сек           
     print(j, *world)
