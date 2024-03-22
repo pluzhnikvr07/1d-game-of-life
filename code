@@ -1,7 +1,9 @@
-dlina = int(input())
-world = [input() for i in range(dlina)]
-print(*world)
-for i in range(10):
+import time
+dlina = int(input('Введите длину строки, на которой будут расположены клетки \n'))
+world = [input('Введите живую(*) или мертвую(-) клетку ') for i in range(dlina)]
+pokolenie = int(input('Введите количество поколений, которые хотите увидеть \n'))
+print('Ваша строка:', *world)
+for j in range(1, pokolenie + 1):
     for i in range(dlina):
         if i != (dlina - 1):
             if (world[i - 1] == '*' and world[i + 1] == '*') or (world[i - 1] == '-' and world[i + 1] == '-'):
@@ -13,4 +15,5 @@ for i in range(10):
                 world[i] = '-'
             elif (world[i - 1] == '*' and world[0] == '-') or (world[i - 1] == '-' and world[0] == '*'):
                 world[i] = '*'
-    print(*world)
+    time.sleep(0.5)            
+    print(j, *world)
